@@ -1,0 +1,117 @@
+:root {
+    --textbox: black;
+    --text-color: #E5D3D3;
+    --button-back: #483d3c;
+    --button-color: var(--text-color);
+    --link-color: #f5eede;
+    --dots: repeating-linear-gradient(to bottom, transparent, transparent 1px, white 1px, white 3px), repeating-linear-gradient(to right, #ccc, #ccc 1px, white 1px, white 3px);
+}
+
+a {
+    color: var(--link-color);
+}
+a:hover, a:focus {
+    color: var(--button-color);
+}
+
+hr {
+    border: none;
+    border-bottom: var(--link-color) solid thin;
+    width: 40%;
+}
+
+details {
+    cursor: pointer;
+    padding: 5px;
+    transition: all 0.1s;
+}
+summary { padding: 5px }
+
+.lace {
+    background: url("./images/lace.png") repeat-x bottom;
+    background-size: contain;
+}
+
+.buttons {
+    background: var(--button-back);
+    color: var(--button-color);
+    font: inherit;
+
+
+    margin: 5px;
+    border: none;
+    border-radius: 0px;
+    transition: all 0.1s;
+
+
+    cursor: pointer;
+}
+
+.buttons:focus, .buttons:hover {
+    background: var(--button-color);
+    color: var(--button-back);
+}
+
+
+/* About screen */
+
+#about {
+    background: var(--textbox);
+    color: var(--text-color);
+    padding: 10px;
+
+    overflow-y: scroll;
+    height: 100%;
+
+    line-height: 1.4;
+}
+
+#about button {
+    position: relative;
+    padding: 5px 15px;
+}
+
+#about section {
+    padding-left: 1em;
+    padding-right: 1em;
+
+    text-align: center;
+}
+
+#about .jam {
+    width: 50%;
+}
+
+#about .concepts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
+}
+
+#about .concepts img {
+    width: 100%;
+}
+
+#about .concepts div {
+    display: grid;
+    grid-gap: 5px;
+}
+
+/* Text input */
+
+#textinput {
+    position: absolute;
+    width: 50%;
+    top: 10%;
+    height: 30%;
+    left: 25%;
+    z-index: 6;
+
+    background: var(--button-back);
+    color: var(--button-color);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,17 @@
+#bitsygame {
+	height: 100%;
+	width: 100%;
+
+	background: var(--dots);
+
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#bitsygame iframe {
+	aspect-ratio: 1 / 1;
+	height: 100%;
+
+	border: none;
+}

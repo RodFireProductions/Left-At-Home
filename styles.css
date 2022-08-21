@@ -1,0 +1,309 @@
+@font-face {
+  font-family: "Mukta";
+  src: url("./Mukta.ttf") format("truetype");
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: repeating-linear-gradient(to bottom, transparent, transparent 1px, #333 1px, #333 3px), repeating-linear-gradient(to right, #222, #222 1px, #333 1px, #333 3px);
+    /*background-color: #333;*/
+    font-family: 'Mukta', monospace;
+    font-size: 16px;
+    overflow: hidden;
+}
+
+main {
+    aspect-ratio: 3 / 2;
+    height: 100%;
+    /*
+    width: 960px;
+    min-width: 960px;
+    height: 640px;
+    */
+    background-color: #eee;
+    overflow: hidden;
+}
+
+#loading:not(.hidden),
+#titlescreen:not(.hidden),
+#epilogue:not(.hidden) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+}
+
+.hidden {
+    display: none;
+}
+
+/******* START LOADING SCREEN STYLING *******/
+
+#loading {
+    background-color: #242424;
+}
+
+.loading-dots {
+    margin-right: -90px;
+    margin-top: 28px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: transparent;
+    box-shadow: -72px 0 0 0 #FFF, -48px 0 0 0 #FFF, -24px 0 0 0 #FFF;
+    animation: bounce 1.5s infinite linear;
+}
+
+@keyframes bounce {
+    0% {
+        box-shadow: -72px 0 0 0 #FFF, -48px 0 0 0 #FFF, -24px 0 0 0 #FFF;
+    }
+    16.667% {
+        box-shadow: -72px -10px 0 0 #FFF, -48px 0 0 0 #FFF, -24px 0 0 0 #FFF;
+    }
+    33.333% {
+        box-shadow: -72px 0 0 0 #FFF, -48px 0 0 0 #FFF, -24px 0 0 0 #FFF;
+    }
+    50% {
+        box-shadow: -72px 0 0 0 #FFF, -48px -10px 0 0 #FFF, -24px 0 0 0 #FFF;
+    }
+    66.667% {
+        box-shadow: -72px 0 0 0 #FFF, -48px 0 0 0 #FFF, -24px 0 0 0 #FFF;
+    }
+    83.333% {
+        box-shadow: -72px 0 0 0 #FFF, -48px 0 0 0 #FFF, -24px -10px 0 0 #FFF;
+    }
+    100% {
+        box-shadow: -72px 0 0 0 #FFF, -48px 0 0 0 #FFF, -24px 0 0 0 #FFF;
+    }
+}
+
+/******* END LOADING SCREEN STYLING *******/
+
+/******* START TITLE SCREEN STYLING *******/
+
+#titlescreen .titlestuff {
+    height: 50%;
+    width: 40%;
+    padding: 0px;
+    margin: 2em;
+
+    display: grid;
+    grid-template-rows: 40% 1fr;
+    grid-template-columns: 1fr;
+    row-gap: 0px;
+
+}
+
+#titlescreen .lace {
+    height: 100%;
+    width: 100%;
+}
+
+#titlescreen .menu {
+    background: var(--textbox);
+    color: var(--text-color);
+
+    border-radius: 0px 0px 5px 5px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#titlescreen button {
+    padding: 5px 15px;
+}
+
+#titlescreen .wrapper {
+    width: 100%;
+    height: 100%;
+    background: url("images/background.png"), var(--dots);
+    background-size: 100% 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+/******* END TITLE SCREEN STYLING *******/
+
+/******* START DIALOGUE SCREEN STYLING *******/
+
+#dialogue-container:not(.hidden) {
+    display: flex;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+
+    background: var(--dots);
+}
+
+#character-portrait {
+    aspect-ratio: 41 / 51;
+    z-index: 6;
+    position: absolute;
+    height: 60%;
+    width: auto;
+    bottom: 0px;
+    right: 0px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+}
+
+.dialogue-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    background: url("./images/bedroom.png");
+    background-size: contain;
+}
+
+.dialogue-overlay {
+    display: flex;
+    justify-content: space-between;
+    margin: 14px;
+    z-index: 5;
+}
+
+.dialogue-responses-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 40px 0 40px 0;
+    z-index: 5;
+}
+
+.dialogue-wrapper {
+    position: relative;
+    z-index: 5;
+    height: 80%;
+    box-sizing: border-box;
+
+    display: grid;
+    grid-template-rows: 25% 1fr;
+}
+
+.dialogue-wrapper .lace {
+    background-size: 50px;
+}
+
+.dialogue-wrapper .textbox {
+    background: var(--textbox);
+    color: var(--text-color);
+
+    padding: 5px;
+}
+
+#speaker-name {
+    padding: 4px;
+    padding-left: 2em;
+    font-size: 1.1em;
+    position: relative;
+}
+
+#speaker-name::before {
+    content: "— "
+}
+#speaker-name::after {
+    content: " —"
+}
+
+#responses button {
+    aspect-ratio: 25 / 4;
+    min-width: 50%;
+    max-width: 60%;
+    /*height: 80px;
+    width: 500px;*/
+    padding: 6px;
+
+    opacity: 0.9;
+}
+
+#responses button:hover {
+    opacity: 1;
+}
+
+#progress-dialogue {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 15px;
+    bottom: 18px;
+    cursor: pointer;
+    animation: wiggle 0.75s infinite linear;
+}
+
+@keyframes wiggle {
+    0% {
+        right: 15px;
+    }
+    50% {
+        right: 18px;
+    }
+    100% {
+        right: 15px;
+    }
+}
+
+#progress-dialogue div {
+    transform: rotate(45deg);
+    width: 0;
+    height: 0;
+    border-color: #333;
+    border: 7px solid transparent;
+    border-top: 7px solid;
+    border-right: 7px solid;
+    margin: 15px;
+}
+
+#character-dialogue {
+    margin: 0.5em;
+    padding-left: 2em;
+    width: 60%;
+}
+
+.quotes::before {
+    content: "“"
+}
+
+.quotes::after {
+    content: "”"
+}
+
+/******* END DIALOGUE SCREEN STYLING *******/
+
+/******* START EPILOGUE SCREEN STYLING *******/
+
+#epilogue-result {
+    margin: 20px 10%;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+#epilogue button {
+    margin: 20px;
+    padding: 8px 20px;
+}
+
+#epilogue {
+    background: var(--dots);
+}
+
+/******* END EPILOGUE SCREEN STYLING *******/
